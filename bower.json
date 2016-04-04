@@ -1,0 +1,21 @@
+{
+  "name": "draw-things-backend",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Bartosz Krol <adrilan.evenwood@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "drawingboard.js": "^0.4.6"
+  }
+}
