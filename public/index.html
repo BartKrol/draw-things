@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Board</title>
-  <link rel="stylesheet" href="../bower_components/drawingboard.js/dist/drawingboard.min.css">
-  <style>
-    #board {
-      width: 400px;
-       height: 600px;
-      }
-  </style>
+    <meta charset="UTF-8">
+    <title>Board</title>
+    <link rel="stylesheet" href="../bower_components/drawingboard.js/dist/drawingboard.min.css">
+    <style>
+        #board {
+            width: 400px;
+            height: 600px;
+        }
+    </style>
 </head>
 <body>
-  <div id="board"></div>
+<div id="board"></div>
 
+<div id="chat"></div>
 
-  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../bower_components/drawingboard.js/dist/drawingboard.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/drawingboard.js/dist/drawingboard.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
     var socket = io();
-  </script>
-  <script>
+</script>
+<script>
     var myBoard = new DrawingBoard.Board('board', {
-      webStorage: 'local'
+        webStorage: 'local'
     });
 
     myBoard.ev.bind('board:saveLocalStorage', sendBoard);
 
     function sendBoard(e) {
-      socket.emit('board', e);
+        socket.emit('board', e);
     }
-  </script>
+
+    socket.on('chat', function (msg) {
+        $('#chat').append(msg.text)
+    })
+</script>
 </body>
 </html>

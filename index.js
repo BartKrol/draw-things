@@ -49,4 +49,8 @@ io.on('connection', function (socket) {
   socket.on('board', function (msg) {
     socket.broadcast.emit('board', msg);
   });
+
+  socket.on('chat', function (msg) {
+    socket.broadcast.emit('chat', msg);
+  });
 });

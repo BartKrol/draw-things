@@ -8,6 +8,8 @@
 
 <img id="board" src=""/>
 
+<input id="chat" title="chat" type="text"/><button id="send">Send</button>
+
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -15,6 +17,12 @@
     socket.on('board', function (msg) {
         $("#board").attr("src", msg);
     });
+
+    $('#send').click(function () {
+        var msg = $('#chat').val()
+        socket.emit('chat', { text: msg });
+    })
+
 </script>
 </body>
 </html>
