@@ -31,7 +31,7 @@ server.register(require('inert'), (err) => {
     path: '/bower_components/{param*}',
     handler: {
       directory: {
-        path: 'bower_components'
+        path: './bower_components'
       }
     }
   });

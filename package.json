@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bower": "^1.7.9",
     "hapi": "^13.3.0",
     "inert": "^3.2.0",
     "socket.io": "^1.4.5"
